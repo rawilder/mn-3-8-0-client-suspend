@@ -32,11 +32,8 @@ dependencies {
     // import rxjava3
     implementation("io.reactivex.rxjava3:rxjava:3.1.2")
 
-
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
-
 }
-
 
 application {
     mainClass.set("dev.awilder.ApplicationKt")
@@ -66,6 +63,3 @@ micronaut {
         annotations("dev.awilder.*")
     }
 }
-
-
-

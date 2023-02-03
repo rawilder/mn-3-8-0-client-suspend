@@ -3,7 +3,7 @@ micronaut:
     name: mn380ClientSuspend
   http:
     client:
-      read-timeout: 30m
+      read-timeout: 10s
 netty:
   default:
     allocator:

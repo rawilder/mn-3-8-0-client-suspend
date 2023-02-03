@@ -1,13 +1,19 @@
 package dev.awilder
 
-import io.micronaut.runtime.EmbeddedApplication
-import io.micronaut.test.extensions.kotest.annotation.MicronautTest
 import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.nulls.shouldNotBeNull
+import io.micronaut.test.extensions.kotest.annotation.MicronautTest
+import kotlinx.coroutines.withTimeout
+import kotlin.time.Duration.Companion.seconds
 
 @MicronautTest
-class Mn380ClientSuspendTest(private val application: EmbeddedApplication<*>) : StringSpec({
+class Mn380ClientSuspendTest(
+    private val catFactsClient: CatFactsClient
+) : StringSpec({
 
-    "test the server is running" {
-        assert(application.isRunning)
+    "test catFactsClient returns a fact".config(timeout = 7.seconds) {
+        withTimeout(5000) {
+            catFactsClient.getRandomFact().shouldNotBeNull()
+        }
     }
 })

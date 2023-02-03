@@ -28,4 +28,3 @@ data class Status(
     val feedback: String?,
     val sentCount: Int?
 )
-
