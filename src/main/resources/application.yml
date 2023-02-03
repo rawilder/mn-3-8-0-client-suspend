@@ -1,0 +1,10 @@
+micronaut:
+  application:
+    name: mn380ClientSuspend
+  http:
+    client:
+      read-timeout: 30m
+netty:
+  default:
+    allocator:
+      max-order: 3
