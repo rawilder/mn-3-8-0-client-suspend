@@ -11,7 +11,10 @@ class Mn380ClientSuspendTest(
     private val catFactsClient: CatFactsClient
 ) : StringSpec({
 
+    // unrelated timeout bugs
+    // kotest timeout ignored
     "test catFactsClient returns a fact".config(timeout = 7.seconds) {
+        // and this timeout is ignored
         withTimeout(5000) {
             catFactsClient.getRandomFact().shouldNotBeNull()
         }
